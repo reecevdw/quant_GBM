@@ -4,7 +4,7 @@
 
 ---
 
-Hi, I’m Reece — a student at the University of Chicago pursuing a B.S. in Computer Science and a B.A. in Economics, with a specialization in machine learning and financial modeling. This project is part of my ongoing exploration into quantitative finance and risk analysis. It begins with simulating stock prices using Geometric Brownian Motion (GBM), then scales to Monte Carlo simulations across thousands of scenarios. It culminates in portfolio-level risk modeling using matrix decomposition to account for correlations, and incorporates metrics like Value at Risk (VaR) and probability of loss. This mirrors many techniques used in quant research and derivatives trading.
+Hi, I’m Reece — a student at the University of Chicago with a B.S. in Computer Science and a B.A. in Economics, with a specialization in machine learning and business economics, and I am currently finishing my Masters in Mathematical Fiancance (MFE). This project is part of my ongoing exploration into quantitative finance and risk analysis. It begins with simulating stock prices using Geometric Brownian Motion (GBM), then scales to Monte Carlo simulations across thousands of scenarios. It culminates in portfolio-level risk modeling using matrix decomposition to account for correlations, and incorporates metrics like Value at Risk (VaR) and probability of loss. This mirrors many techniques used in quant research and derivatives trading.
 
 ## Project File Descriptions
 
