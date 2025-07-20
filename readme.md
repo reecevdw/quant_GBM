@@ -25,11 +25,11 @@ Hi, I’m Reece — a student at the University of Chicago pursuing a B.S. in Co
 
 This repository contains a series of Python files, each building upon the previous to simulate and analyze stock price dynamics and portfolio-level risk.
 
-- **`GBM_Code.py`**: Implements Geometric Brownian Motion to simulate the evolution of a single stock price path based on parameters like drift, volatility, and time horizon. Useful for understanding basic stochastic behavior in financial markets.
+- **`GBM.py`**: Implements Geometric Brownian Motion to simulate the evolution of a single stock price path based on parameters like drift, volatility, and time horizon. Useful for understanding basic stochastic behavior in financial markets.
 
-- **`Monte_Carlo_GBM.py`**: Expands the GBM logic to run many simulations (e.g., 10,000 paths) and visualizes the distribution of final stock prices. Demonstrates how randomness plays out across repeated trials — a cornerstone of risk modeling.
+- **`Monte_GBM.py`**: Expands the GBM logic to run many simulations (e.g., 10,000 paths) and visualizes the distribution of final stock prices. Demonstrates how randomness plays out across repeated trials — a cornerstone of risk modeling.
 
-- **`portfolio_montecarlo_gbm.py`**: Uses matrix operations to simulate a portfolio of correlated stocks evolving over time. Incorporates a Cholesky decomposition of the covariance matrix to preserve realistic correlation across asset returns. Outputs include portfolio value paths and summary risk metrics like Value at Risk (VaR) and probability of loss.
+- **`Portfolio_Monte_GBM.py`**: Uses matrix operations to simulate a portfolio of correlated stocks evolving over time. Incorporates a Cholesky decomposition of the covariance matrix to preserve realistic correlation across asset returns. Outputs include portfolio value paths and summary risk metrics like Value at Risk (VaR) and probability of loss.
 
 Each script builds a deeper understanding of market behavior under uncertainty — from a single asset's path to diversified portfolio simulations.
 
