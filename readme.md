@@ -1,10 +1,25 @@
-
-
 # Stock Price Simulation and Risk Analysis in Python
+
+## Table of Contents
+
+- [About This Project](#about-this-project)
+- [Project File Descriptions](#project-file-descriptions)
+- [What is Geometric Brownian Motion?](#what-is-geometric-brownian-motion)
+- [How Geometric Brownian Motion Works](#how-geometric-brownian-motion-works)
+- [What This Project Does](#what-this-project-does)
+- [How It Works (Python)](#how-it-works-python)
+- [What is a Monte Carlo Simulation?](#what-is-a-monte-carlo-simulation)
+- [How it Works](#how-it-works)
+- [Visualizing Risk: Histogram + Path Plot](#visualizing-risk-histogram--path-plot)
+- [Monte Carlo Portfolio Simulation Using Matrix Multiplication](#monte-carlo-portfolio-simulation-using-matrix-multiplication)
+- [Why Matrix Multiplication?](#why-matrix-multiplication)
+- [How the Simulation Works](#how-the-simulation-works)
 
 ---
 
-Hi, I’m Reece — a student at the University of Chicago with a B.S. in Computer Science and a B.A. in Economics, with a specialization in machine learning and business economics, and I am currently finishing my Masters in Mathematical Fiancance (MFE). This project is part of my ongoing exploration into quantitative finance and risk analysis. It begins with simulating stock prices using Geometric Brownian Motion (GBM), then scales to Monte Carlo simulations across thousands of scenarios. It culminates in portfolio-level risk modeling using matrix decomposition to account for correlations, and incorporates metrics like Value at Risk (VaR) and probability of loss. This mirrors many techniques used in quant research and derivatives trading.
+## About This Project
+
+Hi, I’m Reece — a student at the University of Chicago pursuing a B.S. in Computer Science and a B.A. in Economics with a specialization in machine learning and business economics. I’m currently completing my Master’s in Financial Mathematics (MFE). This project is part of my ongoing exploration into quantitative finance and risk analysis. It begins with simulating stock prices using Geometric Brownian Motion (GBM), then scales to Monte Carlo simulations across thousands of scenarios. It culminates in portfolio-level risk modeling using matrix decomposition to account for correlations, and incorporates metrics like Value at Risk (VaR) and probability of loss. This mirrors many techniques used in quant research and derivatives trading.
 
 ## Project File Descriptions
 
