@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import yfinance as yf
-
-# Number of assets
-n_assets = 3
+import pandas as pd
+from datetime import datetime, timedelta
+from matplotlib.ticker import FuncFormatter
 
 # List of tickers
-tickers = ["AAPL", "TSLA", "NVDA"]
+tickers = ["QQQ","AAPL", "TSLA", "NVDA"]
 
 def stock_pricing(symbol):
     ticker = yf.Ticker(symbol)
@@ -22,18 +22,30 @@ N = 252  # trading days
 dt = T / N
 
 # Portfolio weights (sum to 1)
-weights = np.array([0.4, 0.3, 0.3])
+weights = np.array([0.05,0.35, 0.3, 0.3])
 
-# Annual drift and volatility
-mu = np.array([0.08, 0.12, 0.10])
-sigma = np.array([0.15, 0.20, 0.18])
+# Download historical daily adjusted close prices (1 year of data)
+end_date = datetime.today()
+start_date = end_date - timedelta(days=365)
+data = yf.download(
+    tickers,
+    start=start_date.strftime("%Y-%m-%d"),
+    end=end_date.strftime("%Y-%m-%d")
+)["Close"]
 
-# Correlation matrix
-corr_matrix = np.array([
-    [1.0, 0.2, 0.4],
-    [0.2, 1.0, 0.3],
-    [0.4, 0.3, 1.0]
-])
+# Calculate daily log returns
+log_returns = np.log(data / data.shift(1)).dropna()
+
+# Compute mean and standard deviation of daily returns
+mu_daily = log_returns.mean().values     # shape (4,)
+sigma_daily = log_returns.std().values   # shape (4,)
+
+# Annualize them
+mu = mu_daily * 252
+sigma = sigma_daily * np.sqrt(252)
+
+# Compute correlation matrix
+corr_matrix = log_returns.corr().values
 
 cov_matrix = np.outer(sigma, sigma) * corr_matrix
 L = np.linalg.cholesky(cov_matrix)
@@ -41,6 +53,7 @@ L = np.linalg.cholesky(cov_matrix)
 M = 10000  # simulations
 
 # Initialize price paths
+n_assets = len(tickers)
 price_paths = np.zeros((M, N + 1, n_assets))
 price_paths[:, 0, :] = S0
 
@@ -70,6 +83,7 @@ for i in range(10000):
 axs[0].set_title("Sample Simulated Portfolio Paths")
 axs[0].set_xlabel("Time Step (Day)")
 axs[0].set_ylabel("Portfolio Value ($)")
+axs[0].get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, _: f'${x:,.0f}'))
 axs[0].grid(True)
 
 # Add portfolio weights and starting prices as text box

@@ -19,7 +19,7 @@
 
 ## About This Project
 
-Hi, I’m Reece — a student at the University of Chicago pursuing a B.S. in Computer Science and a B.A. in Economics with a specialization in machine learning and business economics. I’m currently completing my Master’s in Financial Mathematics (MFE). This project is part of my ongoing exploration into quantitative finance and risk analysis. It begins with simulating stock prices using Geometric Brownian Motion (GBM), then scales to Monte Carlo simulations across thousands of scenarios. It culminates in portfolio-level risk modeling using matrix decomposition to account for correlations, and incorporates metrics like Value at Risk (VaR) and probability of loss. This mirrors many techniques used in quant research and derivatives trading.
+Hi, I’m Reece — a student at the University of Chicago pursuing a B.S. in Computer Science and a B.A. in Economics with a specialization in machine learning and business economics. I’m currently completing my Master’s in Financial Mathematics (MFE). This project simulates and analyzes stock price behavior using historical data and mathematical modeling. It starts with individual stock paths modeled via Geometric Brownian Motion (GBM), scales into Monte Carlo simulations with thousands of paths, and ends with a portfolio-level risk analysis that incorporates real historical correlations and volatility. Value at Risk (VaR), downside probability, and realistic asset interaction are all demonstrated using Python. The project reflects industry-level techniques used in quant research, trading, and risk modeling.
 
 ## Project File Descriptions
 
@@ -29,7 +29,7 @@ This repository contains a series of Python files, each building upon the previo
 
 - **`Monte_GBM.py`**: Expands the GBM logic to run many simulations (e.g., 10,000 paths) and visualizes the distribution of final stock prices. Demonstrates how randomness plays out across repeated trials — a cornerstone of risk modeling.
 
-- **`Portfolio_Monte_GBM.py`**: Uses matrix operations to simulate a portfolio of correlated stocks evolving over time. Incorporates a Cholesky decomposition of the covariance matrix to preserve realistic correlation across asset returns. Outputs include portfolio value paths and summary risk metrics like Value at Risk (VaR) and probability of loss.
+- **`Portfolio_Monte_GBM.py`**: Simulates a multi-asset portfolio using dynamically estimated drift, volatility, and historical correlation (via Cholesky decomposition). It scales GBM across assets and paths, visualizes portfolio evolution, and computes portfolio-level VaR and loss probabilities based on real market behavior. All inputs — including start prices, returns, and covariances — are derived from one year of recent market data.
 
 Each script builds a deeper understanding of market behavior under uncertainty — from a single asset's path to diversified portfolio simulations.
 
@@ -213,3 +213,5 @@ This gives us realistic joint behavior between the assets — if Tesla crashes, 
 * Portfolio value at start: \$100,000
 
 At each timestep for each simulation, the asset prices evolve via GBM, and we compute the weighted portfolio value.
+
+Note: Drift, volatility, and correlation are not hardcoded — they are calculated dynamically from historical log returns over the past year using Yahoo Finance data. This ensures the model reflects current market behavior for the selected tickers.
